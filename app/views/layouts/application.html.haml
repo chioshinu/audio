@@ -26,12 +26,15 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href="#") Audio
+          %a.brand(href="/") Audio
           .container.nav-collapse
             %ul.nav
               %li= link_to "Link 1", "/path1"
               %li= link_to "Link 2", "/path2"
               %li= link_to "Link 3", "/path3"
+            = form_tag("/search", method: 'get', class: "navbar-search pull-right") do
+              %input.search-query{'name'=>"q", 'type'=>"text", 'placeholder'=>"Search"}
+
 
     .container
 

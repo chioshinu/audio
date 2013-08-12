@@ -1,0 +1,10 @@
+%h2 Friends
+%ul.friends
+  - @user.friendships.each do |friendship|
+    %li.friend
+      %a{:href => "#"}= friendship.friend.username
+%h2 Friendship requests
+%ul.requests
+  - @user.pending_friendships.each do |pending_friendship|
+    %li.request
+      %a{:href => "#"}= pending_friendship.friend.username

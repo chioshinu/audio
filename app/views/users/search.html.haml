@@ -1,0 +1,7 @@
+%h1 Search results
+%ul.users
+  - @users.each do |user|
+    %li.user
+      %span.name= user.username
+      %span.email= user.email
+      %a.add_to_friend{'href'=> friends_add_url(user.id)} Add to friends

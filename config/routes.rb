@@ -1,4 +1,12 @@
 Audio::Application.routes.draw do
+  get "users/show"
+
+  get "users/profile"
+
+  get "users/search"
+
+  get "friends/view"
+
   devise_for :users
 
   get "landing/default"
@@ -61,4 +69,8 @@ Audio::Application.routes.draw do
   # match ':controller(/:action(/:id(.:format)))'
 
   devise_for :users
+
+  get 'users/show/:id', to: 'users#show'
+  get '/search', to: 'users#search'
+  get '/friends/add/:id', to: 'friends#add', as: 'friends_add'
 end
