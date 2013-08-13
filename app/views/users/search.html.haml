@@ -4,4 +4,5 @@
     %li.user
       %span.name= user.username
       %span.email= user.email
-      %a.add_to_friend{'href'=> friends_add_url(user.id)} Add to friends
+      - if Friendship.all(:conditions => ["(user_id = ? and friend_id = ?) or (user_id = ? and friend_id = ?)", user.id, @current_user.id, @current_user.id, user.id]).length == 0
+        %a.add_to_friend{'href'=> friends_add_url(user.id)} Add to friends
