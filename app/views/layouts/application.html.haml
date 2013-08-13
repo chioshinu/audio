@@ -28,13 +28,13 @@
             %span.icon-bar
           %a.brand(href="/") Audio
           .container.nav-collapse
-            %ul.nav
-              - if user_signed_in?
+            - if user_signed_in?
+              %ul.nav
                 %li= link_to "Profile", "/path1"
                 %li= link_to "Manage friends", manage_friends_path
                 %li= link_to "Log out", destroy_user_session_path, :method => :delete
-            = form_tag("/search", method: 'get', class: "navbar-search pull-right") do
-              %input.search-query{'name'=>"q", 'type'=>"text", 'placeholder'=>"Search"}
+              = form_tag("/search", method: 'get', class: "navbar-search pull-right") do
+                %input.search-query{'name'=>"q", 'type'=>"text", 'placeholder'=>"Search"}
 
 
     .container

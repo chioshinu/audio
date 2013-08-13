@@ -9,7 +9,7 @@ gem 'sqlite3'
 gem 'haml-rails'
 gem 'devise'
 gem 'resque'
-gem 'resue-scheduler'
+gem 'resque-scheduler'
 
 
 # Gems used only for assets and not required
