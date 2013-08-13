@@ -8,6 +8,8 @@ gem 'rails', '3.1.1'
 gem 'sqlite3'
 gem 'haml-rails'
 gem 'devise'
+gem 'resque'
+gem 'resue-scheduler'
 
 
 # Gems used only for assets and not required

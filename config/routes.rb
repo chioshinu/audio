@@ -70,7 +70,11 @@ Audio::Application.routes.draw do
 
   devise_for :users
 
-  get 'users/show/:id', to: 'users#show'
+  get 'users/show/:id', to: 'users#show', as: 'user_show'
   get '/search', to: 'users#search'
+  get '/friends', to: 'friends#view', as: 'manage_friends'
   get '/friends/add/:id', to: 'friends#add', as: 'friends_add'
+  get 'friends/accept/:id', to: 'friends#accept', as: 'friends_accept'
+  get 'friends/cancel/:id', to: 'friends#cancel', as: 'friends_cancel'
+  get 'friends/remove/:id', to: 'friends#remove', as: 'friends_remove'
 end

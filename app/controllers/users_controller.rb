@@ -7,7 +7,8 @@ class UsersController < ApplicationController
   end
 
   def search
-    @users = User.all(:conditions => ["username = ? OR email = ?", params[:q], params[:q]])
+    @users = User.all(:conditions => ["username like ? OR email like ?", "%#{params[:q]}%", "%#{params[:q]}%"])
+    @current_user = current_user
   end
 
 end

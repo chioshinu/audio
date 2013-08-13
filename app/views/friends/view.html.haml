@@ -1,10 +1,25 @@
 %h2 Friends
-%ul.friends
-  - @user.friendships.each do |friendship|
-    %li.friend
-      %a{:href => "#"}= friendship.friend.username
+%table.table
+  %thead
+    %tr
+      %th Username
+      %th Actions
+  %tbody
+    - @user.friendships.each do |friendship|
+      %tr
+        %td= link_to friendship.friend.username, user_show_path(friendship.friend.id)
+        %td= link_to "Remove", friends_remove_path(friendship.id), :class => 'btn btn-danger'
+
 %h2 Friendship requests
-%ul.requests
-  - @user.pending_friendships.each do |pending_friendship|
-    %li.request
-      %a{:href => "#"}= pending_friendship.friend.username
+%table.table
+  %thead
+    %tr
+      %th Username
+      %th Actions
+  %tbody
+    - @user.pending_friendships.each do |pending_friendship|
+      %tr
+        %td= link_to pending_friendship.friend.username, user_show_path(pending_friendship.friend.id)
+        %td
+          = link_to "Accept", friends_accept_path(pending_friendship.id), :class => 'btn btn-success'
+          = link_to "Cancel", friends_cancel_path(pending_friendship.id), :class => 'btn btn-danger'
